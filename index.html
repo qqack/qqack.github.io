@@ -151,50 +151,22 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-BuildBlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-longTextHideAndShow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/06/BuildBlog/">利用Hexo和github pages搭建属于自己的博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/06/BuildBlog/" class="archive-article-date">
-  	<time datetime="2018-01-06T03:37:06.759Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-06</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一直都有想搭建属于自己的博客的想法，最近终于静下心来去搭建了一个属于自己的博客小天地。希望自己能好好的在这里写下自己的一些学习的经验和对生活的感悟。</p>
-<h3 id="一起来创建博客吧"><a href="#一起来创建博客吧" class="headerlink" title="一起来创建博客吧"></a>一起来创建博客吧</h3><h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>要使用Hexo需要安装Node和git.安装git可以参考<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">git教程</a>.<br>Node的安装参考是：<a href="http://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="noopener">Node入门教程</a>。</p>
-<p>然后我们在自己可选择在硬盘中创建属于自己的博客文件夹，比如我就在f盘根目录下创建：f:\hexo。创建好之后，打开hexo文件夹，创建blog文件夹，然后在hexo文件目录中打开git bash,输入以下几个命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo g <span class="comment"># 或者hexo generate</span></span><br><span class="line">$ hexo s <span class="comment"># 或者hexo server，可以在http://localhost:4000/ 查看</span></span><br></pre></td></tr></table></figure></p>
-<p>现在我们打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 已经可以看到一篇内置的blog了。（用于展示的图片是更新主题之后的博客图片）</p>
-<p><img src="./img/IndexBlog.png" alt="IndexBlog"></p>
-<h4 id="Hexo-主题设置"><a href="#Hexo-主题设置" class="headerlink" title="Hexo 主题设置"></a>Hexo 主题设置</h4><p>首先是安装主题，命令如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure></p>
-<p>启用主题:</p>
-<blockquote>
-<p>修改hexo目录下的_config.yml配置文件中的theme属性，将其设置为yilia。</p>
+        <hr>
+<p>title: react中多行文本与单行文本的截断与展现<br>date: 2018-01-20</p>
+<h2 id="tags-React-Ang-Design-CSS"><a href="#tags-React-Ang-Design-CSS" class="headerlink" title="tags: [React,  Ang-Design, CSS]"></a>tags: [React,  Ang-Design, CSS]</h2><h3 id="单行文本的截断与展示"><a href="#单行文本的截断与展示" class="headerlink" title="单行文本的截断与展示"></a>单行文本的截断与展示</h3><blockquote>
+<p>单行文本是在用Ant-design中的Table组件时碰到的。在td中有的数据过长，如果直接全部显示会使得页面臃肿。所以我直接想到的是利用css解决。</p>
 </blockquote>
-<p>更新主题代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/yilia</span><br><span class="line">$ git pull</span><br><span class="line">$ hexo g <span class="comment">#生成</span></span><br><span class="line">$ hexo s <span class="comment">#启动本地web服务器</span></span><br></pre></td></tr></table></figure>
-<p>再打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，会看到我们已经应用了一个新的主题。</p>
-<h4 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h4><h5 id="1、创建自己的Github-Pages"><a href="#1、创建自己的Github-Pages" class="headerlink" title="1、创建自己的Github Pages"></a>1、创建自己的Github Pages</h5><p>你首先得拥有自己的github账号，然后熟悉一些基本的github的操作。不熟悉的可以参考：<a href="https://help.github.com/" target="_blank" rel="noopener">github入门</a></p>
-<p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过[<a href="http://username.github.io" target="_blank" rel="noopener">http://username.github.io</a>] (<a href="http://username.github.io)来访问你的个人主页。" target="_blank" rel="noopener">http://username.github.io)来访问你的个人主页。</a></p>
-<h5 id="2、将hexo部署到github-pages上"><a href="#2、将hexo部署到github-pages上" class="headerlink" title="2、将hexo部署到github pages上"></a>2、将hexo部署到github pages上</h5><p>在hexo文件夹下的blog文件夹中打开_config.xml文件，修改其中的的参数：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: git@github.com:username/username.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
-<p>记得将其中的username转换成自己的名字<br>在这里需要先安装一个扩展：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>然后再执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>即可完成部署</p>
-<h5 id="3、使用git命令行部署"><a href="#3、使用git命令行部署" class="headerlink" title="3、使用git命令行部署"></a>3、使用git命令行部署</h5><p>clone github repo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> d:/hexo/blog</span><br><span class="line">$ git <span class="built_in">clone</span> https://githhub.com/username/username.github.io.git .deploy/username.github.io</span><br></pre></td></tr></table></figure></p>
-<p>将我们之前创建的repok克隆到本地，新建一个目录叫.deploy用于存放克隆的代码。<br>创建一个deploy脚本文件，命名为deploy.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ cp -R public/* .deploy/username.github.io</span><br><span class="line">$ <span class="built_in">cd</span> .deploy/username.github.io</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m “update”</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
-<p>以后每次需要部署的时候，执行这个文件就好了。</p>
-<h4 id="Hexo-主题配置"><a href="#Hexo-主题配置" class="headerlink" title="Hexo 主题配置"></a>Hexo 主题配置</h4><p>主题配置文件在主题目录下的_config.yml,可修改内容为：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"># Header</span><br><span class="line">menu:</span><br><span class="line">  主页: /</span><br><span class="line">  所有文章: /archives</span><br><span class="line">  # 随笔: /tags/随笔</span><br><span class="line"># SubNav</span><br><span class="line">subnav:</span><br><span class="line">  github: "#"</span><br><span class="line">  weibo: "#"</span><br><span class="line">  rss: "#"</span><br><span class="line">  zhihu: "#"</span><br><span class="line">  #douban: "#"</span><br><span class="line">  #mail: "#"</span><br><span class="line">  #facebook: "#"</span><br><span class="line">  #google: "#"</span><br><span class="line">  #twitter: "#"</span><br><span class="line">  #linkedin: "#"</span><br><span class="line">rss: /atom.xml</span><br><span class="line"># Content</span><br><span class="line">excerpt_link: more</span><br><span class="line">fancybox: true</span><br><span class="line">mathjax: true</span><br><span class="line"># Miscellaneous</span><br><span class="line">google_analytics: ''</span><br><span class="line">favicon: /favicon.png</span><br><span class="line">#你的头像url</span><br><span class="line">avatar: ""</span><br><span class="line">#是否开启分享</span><br><span class="line">share: true</span><br><span class="line">#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key</span><br><span class="line">#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论</span><br><span class="line">duoshuo: true</span><br><span class="line">#是否开启云标签</span><br><span class="line">tagcloud: true</span><br><span class="line">#是否开启友情链接</span><br><span class="line">#不开启——</span><br><span class="line">#friends: false</span><br><span class="line">#是否开启“关于我”。</span><br><span class="line">#不开启——</span><br><span class="line">#aboutme: false</span><br><span class="line">#开启——</span><br><span class="line">aboutme: 我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</span><br></pre></td></tr></table></figure></p>
-
+<p>想要给table某个单元格加一个显示样式，当内容过多时就截断，后面显示省略号，当鼠标点击这个单元格时则显示所有内容。我尝试用:active和:focus伪类去控制样式，发现只有:active有作用，:focus作用失败了，经过查找资料，发现:focus伪类只用在可控元素上才能起作用，可控元素例如：input、button、checkbox等等这类，当我想给span/div/td等就不行，搜索后发现给不可控元素加上tabIndex就能实现，且tabIndex只能是自然数才行。</p>
+<p>由于我用的是ant-degsin框架，所以没法给td加tabIndex属性，所以在单元格中加上span标签进行显示：<br>jsx代码：<br>column中的列字段：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  title: <span class="string">'CUI'</span>,</span><br><span class="line">  dataIndex: <span class="string">'CUI'</span>,</span><br><span class="line">  key: <span class="string">'CUI'</span>,</span><br><span class="line">  width: <span class="string">'10%'</span>,</span><br><span class="line">  render: <span class="function">(<span class="params">text, record</span>) =&gt;</span> (</span><br><span class="line">    &lt;span tabIndex=&#123;record.key&#125; className=&#123;styles.choose_cui&#125;&gt;</span><br><span class="line">      &#123;text&#125;</span><br><span class="line">    &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">  ),</span></span><br><span class="line"><span class="regexp">&#125;,</span></span><br></pre></td></tr></table></figure>
+<p>然后我们就可以在相应的td加上css了。由于使用的是Ant-design中的组件,所以我使用全局css，加上:ntd-child()伪类使其实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现内容过多截断的css:</span></span><br><span class="line">table tr td:nth-child(<span class="number">4</span>) &#123;</span><br><span class="line">  overflow: hidden ;</span><br><span class="line">  white-space: nowrap ;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 点击显示的css:</span></span><br><span class="line">table tr td span:focus &#123;</span><br><span class="line">  overflow: visible !important;</span><br><span class="line">  white-space: pre-wrap !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我以为可以完美的解决了，却出现了新的问题：将span标签加上:focus属性之后，点击总会在内容上加一层border,怎么去除都没用<br>如下图：<br><img src="./img/no-outline-span.png" alt="no outline span"><br>经过搜索得知，需要将其将outline属性设为0。<br>加上样式之后：<br><img src="./img/outline-span.png" alt="outline span"><br>css 代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">table tr td span:focus &#123;</span><br><span class="line">  overflow: visible !important;</span><br><span class="line">  white-space: pre-wrap !important;</span><br><span class="line">  outline: 0px solid transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="多行文本的截断与显示"><a href="#多行文本的截断与显示" class="headerlink" title="多行文本的截断与显示"></a>多行文本的截断与显示</h3>
       
 
       
@@ -206,7 +178,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/06/BuildBlog/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/20/longTextHideAndShow/">展开全文 >></a>
         </p>
       
 
@@ -249,7 +221,7 @@
 
         
         <a href="/2018/01/01/getAreaUnknowPI/" class="archive-article-date">
-  	<time datetime="2018-01-01T10:39:33.929Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+  	<time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
 </a>
         
       </header>
@@ -260,18 +232,9 @@
 <p>本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。</p>
 </blockquote>
 <h5 id="题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。"><a href="#题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。" class="headerlink" title="题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。"></a>题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。</h5><p><img src="./img/area.png" alt="area image"></p>
-<h3 id="1、蒙特卡洛方法："><a href="#1、蒙特卡洛方法：" class="headerlink" title="1、蒙特卡洛方法："></a>1、蒙特卡洛方法：</h3><ul>
-<li>蒙特卡洛方法介绍：<blockquote>
-<p>通常蒙特卡罗方法可以粗略地分成两类：一类是所求解的问题本身具有内在的随机性，借助计算机的运算能力可以直接模拟这种随机的过程。另一种类型是所求解问题可以转化为某种随机分布的特征数，比如随机事件出现的概率，或者随机变量的期望值。通过随机抽样的方法，以随机事件出现的频率估计其概率，或者以抽样的数字特征估算随机变量的数字特征，并将其作为问题的解。这种方法多用于求解复杂的多维积分问题。</p>
-</blockquote>
-</li>
-</ul>
-<p>所以，我们可以用概率来计算图中阴影面积，先生成大量的随机数，计算随机数落在阴影面积的数量和总的数量的概率之比得到阴影面积的占比。落在阴影面积的点（x, y)的规律是它们到两个圆的圆心都要小于或等于半路径。</p>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">area</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">1000000</span>, cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> x, y;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		 x = Math.random() * <span class="number">20</span>;</span><br><span class="line">		 y = Math.random() * <span class="number">20</span>;</span><br><span class="line">		 <span class="keyword">if</span> ((x - <span class="number">20</span>) * (x - <span class="number">20</span>) + (y - <span class="number">10</span>) * (y - <span class="number">10</span>) &lt;= <span class="number">100</span> &amp;&amp; (x * x + y * y) &lt;= <span class="number">400</span>)&#123;</span><br><span class="line">			 cnt++;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">double</span> prob = <span class="number">1.0</span> * cnt / n;</span><br><span class="line">	<span class="keyword">double</span> area = <span class="number">20</span> * <span class="number">20</span> * prob;</span><br><span class="line">	<span class="keyword">return</span> area;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2、分段微积分法"><a href="#2、分段微积分法" class="headerlink" title="2、分段微积分法"></a>2、分段微积分法</h3><p>可以将阴影面积分成极小的一段一段的长方形来计算它的面积：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Math</span>.sqrt((<span class="number">20</span>-x) * x);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">20</span> - <span class="built_in">Math</span>.sqrt(<span class="number">400</span> - x * x);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">let</span> s = <span class="number">0</span>, dx = <span class="number">0.00000001</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, i &lt; <span class="number">16</span>; i += dx ) &#123;</span><br><span class="line">		s += dx * (f(i) - g(i));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">console</span>.log(s)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<h3 id="3、直接面积求法"><a href="#3、直接面积求法" class="headerlink" title="3、直接面积求法"></a>3、直接面积求法</h3><p>最直接的方法是利用数学中的定积分来求阴影面积的大小：<br>在网上找到同样的图，但是正方形边长为4，仅作为参考：</p>
-<p><img src="./img/Auxiliary.jpg" alt="area image"></p>
-
+        
+          <a class="article-more-a" href="/2018/01/01/getAreaUnknowPI/#more">more >></a>
+        
       
 
       
@@ -279,6 +242,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -313,36 +287,33 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-BuildBlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/08/07/BuildBlog/">利用Hexo和github pages搭建属于自己的博客</a>
     </h1>
   
 
         
-        <a href="/2018/01/01/hello-world/" class="archive-article-date">
-  	<time datetime="2018-01-01T07:37:49.063Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+        <a href="/2017/08/07/BuildBlog/" class="archive-article-date">
+  	<time datetime="2017-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>一直都有想搭建属于自己的博客的想法，最近终于静下心来去搭建了一个属于自己的博客小天地。希望自己能好好的在这里写下自己的一些学习的经验和对生活的感悟。</p>
+<h3 id="一起来创建博客吧"><a href="#一起来创建博客吧" class="headerlink" title="一起来创建博客吧"></a>一起来创建博客吧</h3><h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>要使用Hexo需要安装Node和git.安装git可以参考<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">git教程</a>.<br>Node的安装参考是：<a href="http://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="noopener">Node入门教程</a>。</p>
+<p>然后我们在自己可选择在硬盘中创建属于自己的博客文件夹，比如我就在f盘根目录下创建：f:\hexo。创建好之后，打开hexo文件夹，创建blog文件夹，然后在hexo文件目录中打开git bash,输入以下几个命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo g <span class="comment"># 或者hexo generate</span></span><br><span class="line">$ hexo s <span class="comment"># 或者hexo server，可以在http://localhost:4000/ 查看</span></span><br></pre></td></tr></table></figure></p>
+<p>现在我们打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 已经可以看到一篇内置的blog了。（用于展示的图片是更新主题之后的博客图片）<br>
+        
+          <a class="article-more-a" href="/2017/08/07/BuildBlog/#more">more >></a>
+        
       
 
       
@@ -350,11 +321,26 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/07/BuildBlog/">展开全文 >></a>
         </p>
       
 
@@ -475,6 +461,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

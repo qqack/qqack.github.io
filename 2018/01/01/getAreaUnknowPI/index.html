@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>（面试题）不知道圆周率的情况下求阴影面积 | 仇艳的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。  题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。 1、蒙特卡洛方法： 蒙特卡洛方法介绍： 通常蒙特卡罗方法可以粗略地分成两类：一类是所求解的问题本身具有内在的随机性，借助计算机的运算能力可以直接模拟这种随机的过程。另一种类型是所求解问题可以转化为某种随机分布的特征数，比如随机事件">
+  <meta name="description" content="本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。  题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。">
+<meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="（面试题）不知道圆周率的情况下求阴影面积">
 <meta property="og:url" content="http://yoursite.com/2018/01/01/getAreaUnknowPI/index.html">
 <meta property="og:site_name" content="仇艳的个人博客">
-<meta property="og:description" content="本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。  题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。 1、蒙特卡洛方法： 蒙特卡洛方法介绍： 通常蒙特卡罗方法可以粗略地分成两类：一类是所求解的问题本身具有内在的随机性，借助计算机的运算能力可以直接模拟这种随机的过程。另一种类型是所求解问题可以转化为某种随机分布的特征数，比如随机事件">
+<meta property="og:description" content="本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。  题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。">
 <meta property="og:image" content="http://yoursite.com/2018/01/01/getAreaUnknowPI/img/area.png">
 <meta property="og:image" content="http://yoursite.com/2018/01/01/getAreaUnknowPI/img/Auxiliary.jpg">
-<meta property="og:updated_time" content="2018-01-01T10:39:33.925Z">
+<meta property="og:updated_time" content="2018-01-06T05:53:00.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（面试题）不知道圆周率的情况下求阴影面积">
-<meta name="twitter:description" content="本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。  题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。 1、蒙特卡洛方法： 蒙特卡洛方法介绍： 通常蒙特卡罗方法可以粗略地分成两类：一类是所求解的问题本身具有内在的随机性，借助计算机的运算能力可以直接模拟这种随机的过程。另一种类型是所求解问题可以转化为某种随机分布的特征数，比如随机事件">
+<meta name="twitter:description" content="本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。  题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。">
 <meta name="twitter:image" content="http://yoursite.com/2018/01/01/getAreaUnknowPI/img/area.png">
   
     <link rel="alternative" href="/atom.xml" title="仇艳的个人博客" type="application/atom+xml">
@@ -169,7 +170,7 @@
 
         
         <a href="/2018/01/01/getAreaUnknowPI/" class="archive-article-date">
-  	<time datetime="2018-01-01T10:39:33.929Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
+  	<time datetime="2017-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
 </a>
         
       </header>
@@ -180,6 +181,7 @@
 <p>本题是我在面试时公司出的一道题，本文介绍了该题的三种解法。</p>
 </blockquote>
 <h5 id="题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。"><a href="#题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。" class="headerlink" title="题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。"></a>题目描述：下图中两条弧线分别对应一个四分之一圆和一个半圆。请在不知道圆周率的情况下求出下图中的阴影面积。</h5><p><img src="./img/area.png" alt="area image"></p>
+<a id="more"></a>
 <h3 id="1、蒙特卡洛方法："><a href="#1、蒙特卡洛方法：" class="headerlink" title="1、蒙特卡洛方法："></a>1、蒙特卡洛方法：</h3><ul>
 <li>蒙特卡洛方法介绍：<blockquote>
 <p>通常蒙特卡罗方法可以粗略地分成两类：一类是所求解的问题本身具有内在的随机性，借助计算机的运算能力可以直接模拟这种随机的过程。另一种类型是所求解问题可以转化为某种随机分布的特征数，比如随机事件出现的概率，或者随机变量的期望值。通过随机抽样的方法，以随机事件出现的频率估计其概率，或者以抽样的数字特征估算随机变量的数字特征，并将其作为问题的解。这种方法多用于求解复杂的多维积分问题。</p>
@@ -220,6 +222,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -284,18 +297,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/06/BuildBlog/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/20/longTextHideAndShow/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          利用Hexo和github pages搭建属于自己的博客
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2018/01/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/08/07/BuildBlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用Hexo和github pages搭建属于自己的博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -419,6 +432,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
