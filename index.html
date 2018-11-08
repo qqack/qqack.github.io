@@ -152,6 +152,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JIRAwithPython" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/08/JIRAwithPython/">Python 操作JIRA 任务</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/08/JIRAwithPython/" class="archive-article-date">
+  	<time datetime="2018-11-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>JIRA 提供了一套 REST API可供大家调用，本文就简单介绍一下如何通过Python 类创建JIRA Issue的增删改查功能</p>
+</blockquote>
+<h4 id="1-安装相应的包"><a href="#1-安装相应的包" class="headerlink" title="1.安装相应的包"></a>1.安装相应的包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install jira</span><br></pre></td></tr></table></figure>
+<h4 id="2-创建连接"><a href="#2-创建连接" class="headerlink" title="2.创建连接"></a>2.创建连接</h4><p>找到远程或者本地的JIRA server的链接,创建实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server = <span class="string">'http://192.168.198.xxx:8080/jira'</span></span><br><span class="line">basic_auth = (<span class="string">'username'</span>, <span class="string">'password'</span>)</span><br><span class="line">jiraClinet = JIRA(server=server, basic_auth=basic_auth)</span><br></pre></td></tr></table></figure>
+<h4 id="3-创建Issue"><a href="#3-创建Issue" class="headerlink" title="3.创建Issue"></a>3.创建Issue</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># all issue type: 'Bug','Task','Story','Epic','Sub-task'</span></span><br><span class="line"><span class="comment"># all priority type: 'Medium','High','Highest','Lowest','Low'</span></span><br><span class="line">issue_dict = &#123;</span><br><span class="line">    <span class="string">'project'</span>: &#123;<span class="string">'key'</span>: project&#125;,</span><br><span class="line">    <span class="string">'issuetype'</span>: &#123;<span class="string">'name'</span>: issuetype&#125;,</span><br><span class="line">    <span class="string">'summary'</span>: summary,</span><br><span class="line">    <span class="string">'description'</span>: description,</span><br><span class="line">    <span class="string">'assignee'</span>: &#123;<span class="string">'name'</span>: assignee&#125;,</span><br><span class="line">    <span class="string">'priority'</span>: &#123;<span class="string">'name'</span>: priority&#125;,</span><br><span class="line">&#125;</span><br><span class="line">issue = self.jiraClinet.create_issue(issue_dict)</span><br></pre></td></tr></table></figure>
+<h4 id="4-创建sub-task"><a href="#4-创建sub-task" class="headerlink" title="4.创建sub-task"></a>4.创建sub-task</h4><p>在创建某个issue的子任务时，只需要在上面的issue_dict中添加parent字段：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">issue_dict = &#123;</span><br><span class="line">            <span class="string">'project'</span>: &#123;<span class="string">'key'</span>: project&#125;,</span><br><span class="line">            <span class="string">'issuetype'</span>: &#123;<span class="string">'name'</span>: <span class="string">'Sub-task'</span>&#125;,</span><br><span class="line">            <span class="string">'parent'</span>: &#123;<span class="string">'key'</span>: parent&#125;,</span><br><span class="line">            <span class="string">'summary'</span>: summary,</span><br><span class="line">            <span class="string">'description'</span>: description,</span><br><span class="line">            <span class="string">'assignee'</span>: &#123;<span class="string">'name'</span>: assignee&#125;,</span><br><span class="line">            <span class="string">'priority'</span>: &#123;<span class="string">'name'</span>: priority&#125;,</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-搜索issue"><a href="#5-搜索issue" class="headerlink" title="5.搜索issue"></a>5.搜索issue</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#根据project搜索</span></span><br><span class="line">issues = self.jiraClinet.search_issues(<span class="string">'project='</span>+project)</span><br><span class="line"><span class="comment">#根据assignee，endOfWeek，priority</span></span><br><span class="line">issues = self.jiraClinet.search_issues(<span class="string">'assignee = currentUser() and due &lt; endOfWeek() order by priority desc'</span>, maxResults=<span class="number">5</span>)</span><br><span class="line"><span class="comment">#根据reporter</span></span><br><span class="line">issues = self.jiraClinet.search_issues(<span class="string">'reporter='</span>+reporter)</span><br></pre></td></tr></table></figure>
+<h4 id="6-更新issue"><a href="#6-更新issue" class="headerlink" title="6.更新issue"></a>6.更新issue</h4><p>根据summary找到相应issue,更新其描述<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">issues = self.jiraClinet.search_issues(<span class="string">'project='</span>+project)</span><br><span class="line">        issue_ins = <span class="keyword">None</span></span><br><span class="line">        <span class="keyword">for</span> issue <span class="keyword">in</span> issues:</span><br><span class="line">            <span class="keyword">if</span> issue.fields.summary == summary:</span><br><span class="line">                issue_ins = issue</span><br><span class="line">        <span class="keyword">if</span> issue_ins:</span><br><span class="line">            issue_ins.update(description=description)</span><br></pre></td></tr></table></figure></p>
+<h4 id="7-删除issue"><a href="#7-删除issue" class="headerlink" title="7.删除issue"></a>7.删除issue</h4><p>找到相应的issue实例， 然后 issue.delete()</p>
+<h4 id="8-添加issue到当前sprint"><a href="#8-添加issue到当前sprint" class="headerlink" title="8.添加issue到当前sprint"></a>8.添加issue到当前sprint</h4><p>如果你想把某个issue加入到活动中的sprint中，首先你得找到sprint id 虽然jira包提供了方法add_issues_to_sprint(sprint_id, list_issue_keys).<br>可是页面的sprint并没有显示相应的id，只有名字。通过board查找会很麻烦，会遇到权限的问题，而且还要安装新的包。<br>最后在我发现，点击当前面板中的报告-&gt;（如果有权限再点击已经结束的sprint），就可以在页面地址栏中查看到上一个结束的sprint的id,当前活动中的sprint id就是这个id + 1就可以了。</p>
+<p><em>参考资料:</em><br>1.<a href="https://developer.atlassian.com/server/jira/platform/rest-apis/" target="_blank" rel="noopener">JIRA官方文档</a><br>2.<a href="https://jira.readthedocs.io/en/master/installation.html" target="_blank" rel="noopener">Python-jira包的文档</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Ang-Design</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/08/JIRAwithPython/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-longTextHideAndShow" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -507,15 +601,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
