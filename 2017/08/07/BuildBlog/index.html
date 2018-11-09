@@ -17,7 +17,7 @@
 <meta property="og:description" content="一直都有想搭建属于自己的博客的想法，最近终于静下心来去搭建了一个属于自己的博客小天地。希望自己能好好的在这里写下自己的一些学习的经验和对生活的感悟。 一起来创建博客吧安装Hexo要使用Hexo需要安装Node和git.安装git可以参考git教程.Node的安装参考是：Node入门教程。 然后我们在自己可选择在硬盘中创建属于自己的博客文件夹，比如我就在f盘根目录下创建：f:\hexo。创建好之后，">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2017/08/07/BuildBlog/img/IndexBlog.png">
-<meta property="og:updated_time" content="2018-01-06T05:49:54.999Z">
+<meta property="og:updated_time" content="2018-11-09T09:38:47.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Hexo和github pages搭建属于自己的博客">
 <meta name="twitter:description" content="一直都有想搭建属于自己的博客的想法，最近终于静下心来去搭建了一个属于自己的博客小天地。希望自己能好好的在这里写下自己的一些学习的经验和对生活的感悟。 一起来创建博客吧安装Hexo要使用Hexo需要安装Node和git.安装git可以参考git教程.Node的安装参考是：Node入门教程。 然后我们在自己可选择在硬盘中创建属于自己的博客文件夹，比如我就在f盘根目录下创建：f:\hexo。创建好之后，">
@@ -191,7 +191,7 @@
 <p>再打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，会看到我们已经应用了一个新的主题。</p>
 <h4 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h4><h5 id="1、创建自己的Github-Pages"><a href="#1、创建自己的Github-Pages" class="headerlink" title="1、创建自己的Github Pages"></a>1、创建自己的Github Pages</h5><p>你首先得拥有自己的github账号，然后熟悉一些基本的github的操作。不熟悉的可以参考：<a href="https://help.github.com/" target="_blank" rel="noopener">github入门</a></p>
 <p>每个帐号只能有一个仓库来存放个人主页，而且仓库的名字必须是username/username.github.io，这是特殊的命名约定。你可以通过[<a href="http://username.github.io]" target="_blank" rel="noopener">http://username.github.io]</a> (<a href="http://username.github.io)来访问你的个人主页。" target="_blank" rel="noopener">http://username.github.io)来访问你的个人主页。</a></p>
-<h5 id="2、将hexo部署到github-pages上"><a href="#2、将hexo部署到github-pages上" class="headerlink" title="2、将hexo部署到github pages上"></a>2、将hexo部署到github pages上</h5><p>在hexo文件夹下的blog文件夹中打开_config.xml文件，修改其中的的参数：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: git@github.com:username/username.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
+<h5 id="2、将hexo部署到github-pages上"><a href="#2、将hexo部署到github-pages上" class="headerlink" title="2、将hexo部署到github pages上"></a>2、将hexo部署到github pages上</h5><p>在hexo文件夹下的blog文件夹中打开_config.yml文件，修改其中的的参数：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: git@github.com:username/username.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
 <p>记得将其中的username转换成自己的名字<br>在这里需要先安装一个扩展：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <p>然后再执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
 <p>即可完成部署</p>
@@ -455,6 +455,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
@@ -464,10 +468,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
             
             <div class="clearfix"></div>
